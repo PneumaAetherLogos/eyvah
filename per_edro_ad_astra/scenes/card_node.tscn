@@ -1,0 +1,261 @@
+[gd_scene load_steps=15 format=3 uid="uid://cu2aq1g23xhvy"]
+
+[ext_resource type="Texture2D" uid="uid://b5to7ji4xhj0v" path="res://assets/characters/skeleton.png" id="1_f8qrr"]
+[ext_resource type="Texture2D" uid="uid://dbkft0c8pqn8h" path="res://assets/card_base.png" id="1_q088t"]
+[ext_resource type="Script" uid="uid://ebrfi0fdvv23" path="res://scenes/card_node.gd" id="1_tg5wo"]
+[ext_resource type="Resource" uid="uid://cqswgw24rf8d" path="res://resources/enemies/skeleton.tres" id="2_vvwvd"]
+[ext_resource type="Texture2D" uid="uid://cokskq4busuo8" path="res://assets/card_back.png" id="4_t5h7p"]
+[ext_resource type="Script" uid="uid://q51pag6l8ebq" path="res://scenes/condition_nodes.gd" id="4_vvwvd"]
+[ext_resource type="PackedScene" uid="uid://bpc0hi3fts65r" path="res://scenes/dice_node.tscn" id="5_unbu0"]
+[ext_resource type="Resource" uid="uid://seavkqovy8g5" path="res://resources/dice/skeleton_dice.tres" id="6_wypkk"]
+
+[sub_resource type="Animation" id="Animation_wypkk"]
+resource_name = "DEATH"
+length = 0.6
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vvwvd"]
+resource_name = "FLIP"
+length = 0.2
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardBack:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.095, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_unbu0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardBack:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wypkk"]
+_data = {
+&"DEATH": SubResource("Animation_wypkk"),
+&"FLIP": SubResource("Animation_vvwvd"),
+&"RESET": SubResource("Animation_unbu0")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnkdx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvwvd"]
+size = Vector2(62, 94)
+
+[node name="CardNode" type="Node2D"]
+script = ExtResource("1_tg5wo")
+enemy = ExtResource("2_vvwvd")
+
+[node name="Skin" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-8, -8)
+texture = ExtResource("1_f8qrr")
+
+[node name="CardBase" type="Sprite2D" parent="."]
+use_parent_material = true
+texture = ExtResource("1_q088t")
+
+[node name="DiceNode" parent="." instance=ExtResource("5_unbu0")]
+position = Vector2(-15, 30)
+dice = ExtResource("6_wypkk")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wypkk")
+}
+
+[node name="Health" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 22.0
+offset_right = 28.0
+offset_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.96093, 0.676604, 0.683004, 1)
+theme_override_colors/font_outline_color = Color(0.529412, 0.152941, 0.152941, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+text = "31"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+custom_minimum_size = Vector2(62, 16)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 6
+text = "Sikerler"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Conditions" type="Node2D" parent="."]
+script = ExtResource("4_vvwvd")
+
+[node name="Cond1" type="Label" parent="Conditions"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -30.0
+offset_right = 34.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cond2" type="Label" parent="Conditions"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -14.0
+offset_right = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cond3" type="Label" parent="Conditions"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardBack" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pnkdx")
+use_parent_material = true
+texture = ExtResource("4_t5h7p")
+
+[node name="Area" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_vvwvd")

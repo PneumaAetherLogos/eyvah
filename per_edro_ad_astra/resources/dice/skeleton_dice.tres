@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Dice" load_steps=3 format=3 uid="uid://seavkqovy8g5"]
+
+[ext_resource type="Script" uid="uid://drqquqrfua418" path="res://resources/dice/dice.gd" id="1_26i00"]
+[ext_resource type="Texture2D" uid="uid://dmk412bbj1hvs" path="res://assets/skeleton_die.png" id="2_totco"]
+
+[resource]
+script = ExtResource("1_26i00")
+title = "Skeleton Die"
+texture = ExtResource("2_totco")
+values = Array[int]([2, 2, 3, 4, 5, 5])
+face_types = Array[int]([0, 0, 0, 0, 0, 0])
+metadata/_custom_type_script = "uid://drqquqrfua418"

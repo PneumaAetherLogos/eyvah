@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwdsm85kt1t1"]
+
+[ext_resource type="PackedScene" uid="uid://bpc0hi3fts65r" path="res://scenes/dice_node.tscn" id="1_7lr2h"]
+[ext_resource type="Resource" uid="uid://d3yujdxxvexux" path="res://resources/dice/human_dice.tres" id="2_7lr2h"]
+[ext_resource type="Script" uid="uid://dl10mky5t6kdu" path="res://scenes/player_dice_node.gd" id="2_behpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1g4c"]
+size = Vector2(22, 22)
+
+[node name="DiceNode" instance=ExtResource("1_7lr2h")]
+script = ExtResource("2_behpa")
+dice = ExtResource("2_7lr2h")
+
+[node name="Area" type="Area2D" parent="." index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" index="0"]
+shape = SubResource("RectangleShape2D_l1g4c")
+
+[connection signal="input_event" from="Area" to="." method="_on_area_input_event"]
