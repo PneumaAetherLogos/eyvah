@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3 uid="uid://cubj5w1wrn2v8"]
+
+[ext_resource type="Script" uid="uid://5j7ah3dic0tp" path="res://resources/condition.gd" id="1_j1fgc"]
+[ext_resource type="Resource" uid="uid://bhqnfxbrompsq" path="res://resources/dice/robust_dice.tres" id="2_ow7qx"]
+[ext_resource type="Script" uid="uid://c1gsxp0mohjys" path="res://resources/cards/enemies/enemy.gd" id="3_pg7dk"]
+[ext_resource type="Texture2D" uid="uid://dupmla0kyekrb" path="res://assets/characters/other_skeleton.png" id="4_refbb"]
+
+[sub_resource type="Resource" id="Resource_r6udc"]
+script = ExtResource("1_j1fgc")
+type = 0
+comperator = 0
+value = 4
+metadata/_custom_type_script = "uid://5j7ah3dic0tp"
+
+[sub_resource type="Resource" id="Resource_3r6me"]
+script = ExtResource("1_j1fgc")
+type = 1
+comperator = 0
+value = 4
+metadata/_custom_type_script = "uid://5j7ah3dic0tp"
+
+[sub_resource type="Resource" id="Resource_0dd00"]
+script = ExtResource("1_j1fgc")
+type = 2
+comperator = 0
+value = 6
+metadata/_custom_type_script = "uid://5j7ah3dic0tp"
+
+[resource]
+script = ExtResource("3_pg7dk")
+conditions = Array[ExtResource("1_j1fgc")]([SubResource("Resource_r6udc"), SubResource("Resource_3r6me"), SubResource("Resource_0dd00")])
+dice = ExtResource("2_ow7qx")
+max_health = 8
+title = "Skirmisher"
+texture = ExtResource("4_refbb")
+metadata/_custom_type_script = "uid://c1gsxp0mohjys"

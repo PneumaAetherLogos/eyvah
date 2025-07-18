@@ -64,3 +64,7 @@ theme_override_font_sizes/font_size = 8
 text = "31"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ArmorBar" parent="." index="5"]
+visible = false
+position = Vector2(63, 23)

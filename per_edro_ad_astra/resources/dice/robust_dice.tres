@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bhqnfxbrompsq"]
+
+[ext_resource type="Script" uid="uid://1cye3jxlommu" path="res://resources/dice/robust_dice.gd" id="1_pjd1v"]
+[ext_resource type="Texture2D" uid="uid://uf78x4j5vrwq" path="res://assets/sturdy_die.png" id="2_6hxh1"]
+
+[resource]
+script = ExtResource("1_pjd1v")
+title = "Robust Dicce"
+texture = ExtResource("2_6hxh1")
+values = Array[int]([1, 2, 2, 2, 3, 4])
+face_types = Array[int]([0, 0, 0, 2, 2, 0])
+description = ""
+metadata/_custom_type_script = "uid://drqquqrfua418"

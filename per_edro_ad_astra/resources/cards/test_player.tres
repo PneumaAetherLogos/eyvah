@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_mgdff")
-max_health = 101
+max_health = 50
 title = "Eleman"
 texture = ExtResource("2_5iqby")
 metadata/_custom_type_script = "uid://dp20c6206gp8r"

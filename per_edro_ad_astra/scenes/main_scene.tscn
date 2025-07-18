@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bo2vb102os5u4"]
+[gd_scene load_steps=14 format=3 uid="uid://bo2vb102os5u4"]
 
 [ext_resource type="Script" uid="uid://dda2lqd3c7okq" path="res://scenes/main_scene.gd" id="1_gubc5"]
 [ext_resource type="Script" uid="uid://25hrv33rw30g" path="res://scenes/fields.gd" id="1_w2twt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://csgcfi4k7luf8" path="res://scenes/target_skill_node.tscn" id="7_c16ls"]
 [ext_resource type="Resource" uid="uid://bir6dxi1nttat" path="res://resources/dice/enchanter_dice.tres" id="7_e1cbu"]
 [ext_resource type="Resource" uid="uid://b6nik40uqcrf2" path="res://resources/skills/blessing.tres" id="8_18nlu"]
+[ext_resource type="Resource" uid="uid://bhqnfxbrompsq" path="res://resources/dice/robust_dice.tres" id="9_mngbo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mngbo"]
 shader = ExtResource("2_e1cbu")
@@ -56,6 +57,9 @@ spacing = 30.0
 
 [node name="DiceNode" parent="Hand" instance=ExtResource("6_6wevv")]
 dice = ExtResource("7_e1cbu")
+
+[node name="DiceNode2" parent="Hand" instance=ExtResource("6_6wevv")]
+dice = ExtResource("9_mngbo")
 
 [node name="EndTurn" type="Button" parent="."]
 offset_left = 120.0

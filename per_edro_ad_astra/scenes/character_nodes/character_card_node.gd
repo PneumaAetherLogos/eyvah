@@ -12,6 +12,16 @@ var max_health: int:
 	
 var health: int: set = health_setter
 
+var armor: int = 0:
+	set(value):
+		armor = value
+		if not is_inside_tree():
+			await ready
+		%Armor.text = str(armor)
+		$ArmorBar.visible = armor > 0
+
+
+
 var flipped: bool = false: set = flipped_setter
 
 
@@ -19,7 +29,11 @@ var flipped: bool = false: set = flipped_setter
 
 
 func take_damage(value: int) -> void:
-	health -= value
+	armor -= value
+	if armor < 0:
+		health += armor
+		armor = 0
+
 	$Animations.play("SHAKE")
 	if health <= 0:
 		death()
@@ -41,7 +55,8 @@ func death() -> void:
 
 
 
-
+func gain_armor(value: int) -> void:
+	armor += value
 
 
 

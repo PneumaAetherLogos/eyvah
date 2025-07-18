@@ -2,6 +2,7 @@ extends Node2D
 class_name DiceNode
 
 signal bonus_gain
+signal rolled
 
 @export var dice: Dice:
 	set(value):
@@ -43,6 +44,7 @@ func change_face() -> void:
 func roll() -> void:
 	$Animations.play("ROLL")
 	await $Animations.animation_finished
+	rolled.emit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("TEST"):
@@ -53,6 +55,7 @@ func on_turn_start() -> void:
 	disabled = false
 	bonus = 0
 	await roll()
+	get_character()
 
 
 func on_turn_end() -> void:
@@ -85,3 +88,6 @@ func label_tweener(label: Label) -> void:
 	label_tween.tween_property(label, "scale", Vector2(2, 2), 0.2)
 	label_tween.tween_property(label, "scale", Vector2.ONE, 0.2)
 	
+
+func get_character() -> CharacterCardNode:
+	return owner

@@ -70,7 +70,7 @@ func card_setter(value: Card) -> void:
 	max_health = card.max_health
 	health = max_health
 	$Conditions.set_condition_visuals(card.conditions)
-	$DiceNode.dice = card.dice
+	$DiceNode.dice = card.dice.duplicate()
 
 func flipped_setter(value: bool) -> void:
 	super.flipped_setter(value)

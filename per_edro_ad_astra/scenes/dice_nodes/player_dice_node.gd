@@ -71,3 +71,6 @@ func get_current_face_type() -> Database.Types:
 
 func get_current_face_value() -> int:
 	return dice.values[current_face]
+
+func get_character() -> CharacterCardNode:
+	return get_tree().get_first_node_in_group("PLAYER")
