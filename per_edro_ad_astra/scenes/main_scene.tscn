@@ -70,10 +70,10 @@ theme_override_font_sizes/font_size = 12
 text = "End Turn"
 
 [node name="SkillNode" parent="." instance=ExtResource("6_rt2n2")]
-position = Vector2(411, 149)
+position = Vector2(408, 144)
 
 [node name="TargetSkillNode" parent="." instance=ExtResource("7_c16ls")]
-position = Vector2(411, 192)
+position = Vector2(408, 192)
 skill = ExtResource("8_18nlu")
 
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]

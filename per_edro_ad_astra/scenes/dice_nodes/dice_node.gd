@@ -44,6 +44,7 @@ func change_face() -> void:
 func roll() -> void:
 	$Animations.play("ROLL")
 	await $Animations.animation_finished
+	change_face()
 	rolled.emit()
 
 func _input(event: InputEvent) -> void:

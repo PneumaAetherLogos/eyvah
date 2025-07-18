@@ -11,5 +11,6 @@ title = "Hellfire"
 texture = ExtResource("2_dcxju")
 type = 1
 value = 2
-cost = 6
+cost = 5
+description = ""
 metadata/_custom_type_script = "uid://btx0nbhfy0bns"

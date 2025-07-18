@@ -66,5 +66,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ArmorBar" parent="." index="5"]
-visible = false
 position = Vector2(63, 23)
