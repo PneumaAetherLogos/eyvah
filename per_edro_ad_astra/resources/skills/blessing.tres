@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://b6nik40uqcrf2"]
+
+[ext_resource type="SpriteFrames" uid="uid://dn7ch815s4kt" path="res://resources/effects/effect_blessing.tres" id="1_y1mrk"]
+[ext_resource type="Script" uid="uid://dk4w5dtt3cf7l" path="res://resources/skills/blessing.gd" id="2_d33s3"]
+[ext_resource type="Texture2D" uid="uid://dwxnhohhlu5c7" path="res://assets/blessing.png" id="3_qi5p3"]
+
+[resource]
+script = ExtResource("2_d33s3")
+frames = ExtResource("1_y1mrk")
+target = &"PLAYER_DICE"
+title = "Blessing"
+texture = ExtResource("3_qi5p3")
+type = 0
+value = 2
+cost = 4
+description = "Give +2 bonus."
+metadata/_custom_type_script = "uid://btx0nbhfy0bns"

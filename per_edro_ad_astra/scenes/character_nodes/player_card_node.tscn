@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://3sdjdttxokfb"]
+
+[ext_resource type="PackedScene" uid="uid://c12y1ndlgnic" path="res://scenes/character_nodes/character_card_node.tscn" id="1_8ipsi"]
+[ext_resource type="Script" uid="uid://fnf88u0i0nip" path="res://scenes/character_nodes/player_card_node.gd" id="2_vyml1"]
+[ext_resource type="Resource" uid="uid://3flklpval7iq" path="res://resources/cards/test_player.tres" id="3_5e67b"]
+[ext_resource type="Texture2D" uid="uid://cmxdnot0w4ffg" path="res://assets/char.png" id="3_orwmj"]
+[ext_resource type="Texture2D" uid="uid://dyx4o5n8s74o2" path="res://assets/player_card_base.png" id="4_5e67b"]
+[ext_resource type="Texture2D" uid="uid://3i5h1sqw228b" path="res://assets/xp_bar.png" id="5_vyml1"]
+
+[node name="PlayerCardNode" groups=["PLAYER"] instance=ExtResource("1_8ipsi")]
+script = ExtResource("2_vyml1")
+max_xp = 30
+card = ExtResource("3_5e67b")
+
+[node name="Skin" parent="." index="0"]
+position = Vector2(0, 0)
+texture = ExtResource("3_orwmj")
+
+[node name="CardBase" parent="." index="1"]
+texture = ExtResource("4_5e67b")
+
+[node name="HpBar" parent="." index="3"]
+position = Vector2(53, 32)
+
+[node name="XpBar" type="Sprite2D" parent="." index="4"]
+position = Vector2(53, -7)
+texture = ExtResource("5_vyml1")
+
+[node name="Xp" type="Label" parent="XpBar" index="0"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_top = 0.0625
+anchor_right = 0.75
+anchor_bottom = 0.78125
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.96, 0.8928, 0.89392, 1)
+theme_override_colors/font_outline_color = Color(0.225232, 0.296031, 0.483714, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MaxXp" type="Label" parent="XpBar" index="1"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.53125
+anchor_top = 0.5
+anchor_right = 0.90625
+anchor_bottom = 0.8125
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "31"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://3flklpval7iq"]
+
+[ext_resource type="Script" uid="uid://dp20c6206gp8r" path="res://resources/cards/character.gd" id="1_mgdff"]
+[ext_resource type="Texture2D" uid="uid://cmxdnot0w4ffg" path="res://assets/char.png" id="2_5iqby"]
+
+[resource]
+script = ExtResource("1_mgdff")
+max_health = 101
+title = "Eleman"
+texture = ExtResource("2_5iqby")
+metadata/_custom_type_script = "uid://dp20c6206gp8r"

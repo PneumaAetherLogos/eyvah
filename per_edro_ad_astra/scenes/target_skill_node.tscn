@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://csgcfi4k7luf8"]
+
+[ext_resource type="PackedScene" uid="uid://dwy6nlol2nfsy" path="res://scenes/skill_node.tscn" id="1_tyfh8"]
+[ext_resource type="Script" uid="uid://cpnnjb4c8ogeu" path="res://scenes/target_skill_node.gd" id="2_4m07p"]
+[ext_resource type="PackedScene" uid="uid://doe5a87espshr" path="res://scenes/selector_line.tscn" id="3_nvlon"]
+
+[node name="TargetSkillNode" instance=ExtResource("1_tyfh8")]
+script = ExtResource("2_4m07p")
+skill = null
+
+[node name="SelectorLine" parent="." index="8" instance=ExtResource("3_nvlon")]
+visible = false
+z_index = 1

@@ -1,0 +1,72 @@
+extends CardNode
+class_name CharacterCardNode
+
+@export var card: Card: set = card_setter
+
+var max_health: int:
+	set(value):
+		max_health = value
+		%MaxHealth.text = str(max_health)
+		health = clamp(health, 0, max_health)
+	
+	
+var health: int: set = health_setter
+
+var flipped: bool = false: set = flipped_setter
+
+
+
+
+
+func take_damage(value: int) -> void:
+	health -= value
+	$Animations.play("SHAKE")
+	if health <= 0:
+		death()
+	var instance = GameState.floating_text.instantiate()
+	instance.number = value
+	instance.type = instance.TextType.Damage
+	instance.position = $HpBar.position - Vector2(0, 10)
+	add_child(instance)
+
+func add_status(status: Status, amount: int) -> void:
+	$StatusEffects.add_status(status, amount)
+
+func death() -> void:
+	
+	$Animations.play("DEATH")
+	await $Animations.animation_finished
+	reparent(get_parent())
+	queue_free()
+
+
+
+
+
+
+
+
+func card_setter(value: Card) -> void:
+	card = value
+	if not is_inside_tree():
+		await ready
+	$Skin.texture = card.texture
+	$Title.text = card.title
+	max_health = card.max_health
+	health = max_health
+
+func health_setter(value: int) -> void:
+	health = value
+	%Health.text = str(health)
+	
+func flipped_setter(value: bool) -> void:
+	flipped = value
+	if flipped:
+		$Animations.play("FLIP")
+		add_to_group("CHARACTER")
+	else:
+		$Animations.play_backwards("FLIP")
+		remove_from_group("CHARACTER")
+	
+	$Area.monitoring = value
+	$Area.monitorable = value

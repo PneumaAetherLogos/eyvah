@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwdryctrajk0x"]
+
+[ext_resource type="PackedScene" uid="uid://c12y1ndlgnic" path="res://scenes/character_nodes/character_card_node.tscn" id="1_b42m2"]
+[ext_resource type="Script" uid="uid://ebrfi0fdvv23" path="res://scenes/character_nodes/enemy_card_node.gd" id="1_senq5"]
+[ext_resource type="Resource" uid="uid://cqswgw24rf8d" path="res://resources/cards/enemies/skeleton.tres" id="3_pa8uu"]
+[ext_resource type="PackedScene" uid="uid://bpc0hi3fts65r" path="res://scenes/dice_nodes/dice_node.tscn" id="5_x2fx8"]
+[ext_resource type="Resource" uid="uid://seavkqovy8g5" path="res://resources/dice/skeleton_dice.tres" id="6_rp11x"]
+[ext_resource type="Script" uid="uid://q51pag6l8ebq" path="res://scenes/character_nodes/condition_nodes.gd" id="7_dhe0r"]
+
+[node name="EnemyCardNode" instance=ExtResource("1_b42m2")]
+script = ExtResource("1_senq5")
+card = ExtResource("3_pa8uu")
+
+[node name="DiceNode" parent="." index="2" instance=ExtResource("5_x2fx8")]
+position = Vector2(-15, 30)
+dice = ExtResource("6_rp11x")
+
+[node name="Conditions" type="Node2D" parent="." index="4"]
+script = ExtResource("7_dhe0r")
+
+[node name="Cond1" type="Label" parent="Conditions" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -30.0
+offset_right = 34.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Cond2" type="Label" parent="Conditions" index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -14.0
+offset_right = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Cond3" type="Label" parent="Conditions" index="2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

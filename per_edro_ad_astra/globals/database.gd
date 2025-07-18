@@ -4,6 +4,13 @@ extends Node
 enum Types {PNEUMA, AETHER, LOGOS, ANY}
 
 
+const STATUS: Dictionary = {
+	"BURN" = preload("res://resources/status/burn.tres")
+}
+
+
+func get_status(title: String) -> Status:
+	return STATUS[title].duplicate()
 
 func get_color(type: Types) -> Color:
 		var color: Color = Color.WHITE

@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwy6nlol2nfsy"]
+
+[ext_resource type="Script" uid="uid://g5xeue1c3de5" path="res://scenes/skill_node.gd" id="1_trm5r"]
+[ext_resource type="Texture2D" uid="uid://diwsjs36kqona" path="res://assets/skill_bg.png" id="2_5o4n0"]
+[ext_resource type="Resource" uid="uid://bhtvidlh22xns" path="res://resources/skills/hellfire.tres" id="2_jgmik"]
+[ext_resource type="Texture2D" uid="uid://dea5ko5decvgs" path="res://assets/hellfire.png" id="3_jgmik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trm5r"]
+size = Vector2(70, 32)
+
+[node name="SkillNode" type="Node2D"]
+script = ExtResource("1_trm5r")
+skill = ExtResource("2_jgmik")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -16.0
+offset_right = 36.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
+custom_minimum_size = Vector2(36, 36)
+offset_left = -36.0
+offset_top = -19.0
+offset_bottom = 17.0
+color = Color(1, 0.38, 0.38, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_5o4n0")
+
+[node name="Skin" type="Sprite2D" parent="."]
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
+position = Vector2(19, 0)
+texture = ExtResource("3_jgmik")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -37.0
+offset_top = -23.0
+offset_right = 37.0
+offset_bottom = -5.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "Hellfire"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mana" type="Label" parent="."]
+offset_left = -42.0
+offset_top = -11.0
+offset_right = -2.0
+offset_bottom = 7.0
+theme_override_font_sizes/font_size = 12
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxMana" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -1.0
+offset_right = 8.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_trm5r")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

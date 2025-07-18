@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bhtvidlh22xns"]
+
+[ext_resource type="Script" uid="uid://djfa4ks1fgufu" path="res://resources/skills/hellfire.gd" id="1_dcxju"]
+[ext_resource type="SpriteFrames" uid="uid://bavtjp1sgic00" path="res://resources/effects/effect_hellfire.tres" id="1_w51ct"]
+[ext_resource type="Texture2D" uid="uid://dea5ko5decvgs" path="res://assets/hellfire.png" id="2_dcxju"]
+
+[resource]
+script = ExtResource("1_dcxju")
+frames = ExtResource("1_w51ct")
+title = "Hellfire"
+texture = ExtResource("2_dcxju")
+type = 1
+value = 2
+cost = 6
+metadata/_custom_type_script = "uid://btx0nbhfy0bns"

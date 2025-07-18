@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bir6dxi1nttat"]
+
+[ext_resource type="Script" uid="uid://dmd74d6w63yvr" path="res://resources/dice/enchanter_dice.gd" id="1_y5s0w"]
+[ext_resource type="Texture2D" uid="uid://cmtlxlmth8alq" path="res://assets/enchanter_die.png" id="2_y5s0w"]
+
+[resource]
+script = ExtResource("1_y5s0w")
+title = "Enchanter Dice"
+texture = ExtResource("2_y5s0w")
+values = Array[int]([1, 1, 2, 2, 3, 3])
+face_types = Array[int]([2, 0, 0, 0, 0, 2])
+metadata/_custom_type_script = "uid://drqquqrfua418"

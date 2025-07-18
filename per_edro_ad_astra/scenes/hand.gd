@@ -1,6 +1,6 @@
 extends Node2D
 
-const DICE_NODE: PackedScene = preload("res://scenes/player_dice_node.tscn")
+const DICE_NODE: PackedScene = preload("res://scenes/dice_nodes/player_dice_node.tscn")
 
 
 @export var spacing: float = 100.0
@@ -9,13 +9,10 @@ const DICE_NODE: PackedScene = preload("res://scenes/player_dice_node.tscn")
 
 
 func _ready() -> void:
-	for i in 6:
+	for i in 4:
 		var instance = DICE_NODE.instantiate()
-		var main = get_tree().current_scene
-		if main.has_signal("turn_start"):
-			main.turn_start.connect(instance.on_turn_start)
-		if main.has_signal("turn_end"):
-			main.turn_end.connect(instance.on_turn_end)
+
+
 
 		add_child(instance)
 	layout_hand()
