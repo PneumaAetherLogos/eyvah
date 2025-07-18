@@ -66,6 +66,7 @@ func on_turn_end() -> void:
 
 
 
+
 func get_current_face_type() -> Database.Types:
 	return dice.face_types[current_face]
 

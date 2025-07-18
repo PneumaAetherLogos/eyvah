@@ -48,6 +48,9 @@ func add_status(status: Status, amount: int) -> void:
 
 func death() -> void:
 	
+	for i in get_groups():
+		remove_from_group(i)
+	
 	$Animations.play("DEATH")
 	await $Animations.animation_finished
 	reparent(get_parent())

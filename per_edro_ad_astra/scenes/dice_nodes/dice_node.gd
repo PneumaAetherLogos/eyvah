@@ -47,10 +47,6 @@ func roll() -> void:
 	change_face()
 	rolled.emit()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("TEST"):
-		roll()
-
 
 func on_turn_start() -> void:
 	disabled = false
