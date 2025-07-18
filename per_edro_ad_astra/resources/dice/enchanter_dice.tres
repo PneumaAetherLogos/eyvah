@@ -9,4 +9,5 @@ title = "Enchanter Dice"
 texture = ExtResource("2_y5s0w")
 values = Array[int]([1, 1, 2, 2, 3, 3])
 face_types = Array[int]([2, 0, 0, 0, 0, 2])
+description = ""
 metadata/_custom_type_script = "uid://drqquqrfua418"

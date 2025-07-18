@@ -9,4 +9,5 @@ title = "Skeleton Die"
 texture = ExtResource("2_totco")
 values = Array[int]([2, 2, 3, 4, 5, 5])
 face_types = Array[int]([0, 0, 0, 0, 0, 0])
+description = ""
 metadata/_custom_type_script = "uid://drqquqrfua418"

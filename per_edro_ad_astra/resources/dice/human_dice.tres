@@ -9,4 +9,5 @@ title = "Human Dice"
 texture = ExtResource("1_owfyt")
 values = Array[int]([1, 2, 3, 4, 5, 6])
 face_types = Array[int]([2, 1, 0, 0, 1, 2])
+description = ""
 metadata/_custom_type_script = "uid://drqquqrfua418"

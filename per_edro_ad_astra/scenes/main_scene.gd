@@ -61,3 +61,6 @@ func roll_all() -> void:
 	
 func _ready() -> void:
 	start_turn()
+
+func _process(_delta: float) -> void:
+	$ColorRect.material.set("shader_parameter/time", Time.get_ticks_msec() / 1000.0)
