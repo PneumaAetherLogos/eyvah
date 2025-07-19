@@ -38,6 +38,9 @@ var bonus: int = 0:
 			modulate = "ffffff"
 
 
+func _ready() -> void:
+	GameState.turn_end.connect(on_turn_end)
+
 func change_face() -> void:
 	current_face = randi_range(0, 5)
 

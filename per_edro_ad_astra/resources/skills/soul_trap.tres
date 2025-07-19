@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ubhrimimxjt4"]
+
+[ext_resource type="Script" uid="uid://ckwk0f23pd2by" path="res://resources/skills/soul_trap.gd" id="1_2x5ke"]
+[ext_resource type="Texture2D" uid="uid://bh6c7eo4r7njp" path="res://assets/soul_trap.png" id="2_2x5ke"]
+
+[resource]
+script = ExtResource("1_2x5ke")
+target = &"ENEMY"
+title = "Soul Trap"
+texture = ExtResource("2_2x5ke")
+type = 2
+value = 2
+cost = 6
+description = "Deal 2 damage. If it is a perfect kill, summon him."
+metadata/_custom_type_script = "uid://btx0nbhfy0bns"

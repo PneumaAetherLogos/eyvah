@@ -28,6 +28,9 @@ var flipped: bool = false: set = flipped_setter
 
 
 
+
+
+
 func take_damage(value: int) -> void:
 	armor -= value
 	if armor < 0:
@@ -88,3 +91,11 @@ func flipped_setter(value: bool) -> void:
 	
 	$Area.monitoring = value
 	$Area.monitorable = value
+
+
+func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			var active: TargetSkillNode = get_tree().get_first_node_in_group("ACTIVATED")
+			if active:
+				active.activate(self)

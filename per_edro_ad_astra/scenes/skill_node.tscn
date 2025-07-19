@@ -44,9 +44,9 @@ texture = ExtResource("3_jgmik")
 
 [node name="Title" type="Label" parent="."]
 offset_left = -37.0
-offset_top = -23.0
+offset_top = -28.0
 offset_right = 37.0
-offset_bottom = -5.0
+offset_bottom = -10.0
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 8
 text = "Hellfire"

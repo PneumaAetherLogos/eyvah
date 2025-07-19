@@ -9,7 +9,6 @@ func nest_setter(v) -> void:
 	nest.rolled.connect(on_rolled)
 	
 
-
 func on_rolled() -> void:
 	nest.get_tree().current_scene.add_action(effect)
 

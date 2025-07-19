@@ -111,3 +111,5 @@ offset_bottom = 71.0
 grow_horizontal = 2
 columns = 4
 script = ExtResource("4_gawpc")
+
+[connection signal="input_event" from="Area" to="." method="_on_area_input_event"]

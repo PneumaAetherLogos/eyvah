@@ -7,7 +7,7 @@ func effect(tree: SceneTree, _t = null) -> void:
 	
 	var anim: AnimatedSprite2D = AnimatedSprite2D.new()
 	anim.sprite_frames = frames
-	anim.position = Vector2(240, 135)
+	anim.position = Database.WINDOW_SIZE / 2
 	anim.z_index = 100
 	tree.current_scene.add_child(anim)
 	anim.play()

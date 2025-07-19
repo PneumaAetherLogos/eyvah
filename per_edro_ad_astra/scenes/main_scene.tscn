@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bo2vb102os5u4"]
+[gd_scene load_steps=15 format=3 uid="uid://bo2vb102os5u4"]
 
 [ext_resource type="Script" uid="uid://dda2lqd3c7okq" path="res://scenes/main_scene.gd" id="1_gubc5"]
 [ext_resource type="Script" uid="uid://25hrv33rw30g" path="res://scenes/fields.gd" id="1_w2twt"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://bir6dxi1nttat" path="res://resources/dice/enchanter_dice.tres" id="7_e1cbu"]
 [ext_resource type="Resource" uid="uid://b6nik40uqcrf2" path="res://resources/skills/blessing.tres" id="8_18nlu"]
 [ext_resource type="Resource" uid="uid://bhqnfxbrompsq" path="res://resources/dice/robust_dice.tres" id="9_mngbo"]
+[ext_resource type="Resource" uid="uid://ubhrimimxjt4" path="res://resources/skills/soul_trap.tres" id="13_4w45t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mngbo"]
 shader = ExtResource("2_e1cbu")
@@ -28,8 +29,8 @@ script = ExtResource("1_gubc5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_mngbo")
-offset_right = 484.0
-offset_bottom = 274.0
+offset_right = 640.0
+offset_bottom = 368.0
 mouse_filter = 2
 color = Color(0.2795, 0.43, 0.314617, 1)
 
@@ -37,21 +38,21 @@ color = Color(0.2795, 0.43, 0.314617, 1)
 script = ExtResource("1_w2twt")
 
 [node name="Field1" parent="Fields" instance=ExtResource("2_7ykc4")]
-position = Vector2(119, 72)
+position = Vector2(192, 72)
 
 [node name="Field2" parent="Fields" instance=ExtResource("2_7ykc4")]
-position = Vector2(240, 72)
+position = Vector2(313, 72)
 
 [node name="Field3" parent="Fields" instance=ExtResource("2_7ykc4")]
-position = Vector2(359, 72)
+position = Vector2(432, 72)
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2(240, 216)
+position = Vector2(312, 304)
 
 [node name="PlayerCardNode" parent="Player" instance=ExtResource("6_c16ls")]
 
-[node name="Hand" type="Node2D" parent="."]
-position = Vector2(240, 144)
+[node name="Hand" type="Node2D" parent="." groups=["HAND"]]
+position = Vector2(312, 168)
 script = ExtResource("3_pu3yx")
 spacing = 30.0
 
@@ -62,18 +63,23 @@ dice = ExtResource("7_e1cbu")
 dice = ExtResource("9_mngbo")
 
 [node name="EndTurn" type="Button" parent="."]
-offset_left = 120.0
-offset_top = 240.0
-offset_right = 197.0
-offset_bottom = 264.0
+offset_left = 192.0
+offset_top = 328.0
+offset_right = 269.0
+offset_bottom = 352.0
 theme_override_font_sizes/font_size = 12
 text = "End Turn"
 
 [node name="SkillNode" parent="." instance=ExtResource("6_rt2n2")]
-position = Vector2(408, 144)
+position = Vector2(592, 144)
 
 [node name="TargetSkillNode" parent="." instance=ExtResource("7_c16ls")]
-position = Vector2(408, 192)
+position = Vector2(592, 192)
 skill = ExtResource("8_18nlu")
 
+[node name="TargetSkillNode2" parent="." instance=ExtResource("7_c16ls")]
+position = Vector2(592, 240)
+skill = ExtResource("13_4w45t")
+
+[connection signal="child_order_changed" from="Hand" to="Hand" method="layout_hand"]
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
